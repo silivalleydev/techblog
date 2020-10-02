@@ -1,1 +1,0 @@
-# wisemk79-techblog
