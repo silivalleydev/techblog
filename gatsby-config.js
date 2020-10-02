@@ -27,6 +27,12 @@ const plugins = [
     }
   },
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/src/images`,
+    },
+  },
+  {
     resolve: 'gatsby-plugin-mdx',
     options: {
       gatsbyRemarkPlugins: [
@@ -90,7 +96,6 @@ if (config.gatsby && !config.gatsby.trailingSlash) {
 }
 
 module.exports = {
-  pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
     title: config.siteMetadata.title,
     description: config.siteMetadata.description,

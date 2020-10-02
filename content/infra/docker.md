@@ -1,6 +1,6 @@
 ---
-title: "docker"
-metaTitle: "docker"
+title: "Docker"
+metaTitle: "Docker"
 metaDescription: "This is the meta description"
 ---
 

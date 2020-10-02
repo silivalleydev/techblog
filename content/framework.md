@@ -1,6 +1,6 @@
 ---
-title: "인프라"
-metaTitle: "Infra"
+title: "프레임워크"
+metaTitle: "framework"
 metaDescription: "This is the meta description for this page"
 ---
 

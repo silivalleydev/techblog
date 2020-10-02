@@ -1,6 +1,6 @@
 ---
-title: "인프라"
-metaTitle: "Infra"
+title: "언어"
+metaTitle: "language"
 metaDescription: "This is the meta description for this page"
 ---
 
