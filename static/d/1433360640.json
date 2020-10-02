@@ -1,1 +1,1 @@
-{"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/","title":"SuHyeon's TechBlog"}}},{"node":{"fields":{"slug":"/infra","title":"인프라 관련"}}},{"node":{"fields":{"slug":"/infra/docker","title":"docker"}}}]}}}
+{"data":{"allMdx":{"edges":[{"node":{"fields":{"slug":"/infra","title":"인프라 관련"}}},{"node":{"fields":{"slug":"/","title":"SuHyeon's TechBlog"}}},{"node":{"fields":{"slug":"/infra/docker","title":"docker"}}}]}}}
