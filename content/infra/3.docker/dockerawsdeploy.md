@@ -23,3 +23,12 @@ metaDescription: "This is the meta description"
 2. `docker pull` <이미지 이름>:<태그> : 이미지 이름에 gunjuko/{image-name} 처럼 / 앞에 사용자명을 입력하면 Docker hub에서 해당 사용자가 올린 이미지를 받습니다. 공식 이미지는 사용자명이 붙지 않습니다.
 3. `docker images` : 해당 명령어로 도커 허브에서 이미지를 성공적으로 다운받았는지 확인해봅니다.
 4. `docker run -d -p 8080:8080 {image}` : 도커 이미지를 이용해서 컨테이너를 실행합니다.
+
+## 인스턴스 AWS Security Groups 설정
+
+내가 만든 인스턴스의 `Security Groups`의 `Inbound Rules`에서 규칙을 추가하여 자신이 배포한 포트에 맞는 포트를 열어주면됩니다.
+
+## DNS로 접속하기
+
+인스턴스 정보에보면 `Public IPv4 DNS`가 있는데,  
+`Public IPv4 DNS주소:포트번호`로 내가 배포한 사이트에 접속할 수 있습니다.

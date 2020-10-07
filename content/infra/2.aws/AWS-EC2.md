@@ -4,10 +4,6 @@ metaTitle: "AWS-EC2"
 metaDescription: "This is the meta description"
 ---
 
-## EC2-LAMP-ELB 구성하는 순서
-![ㅇㅇ](../../../src/images/ec21.png)  
-![ㅇㅇ](../../../src/images/ec22.png)  
-
 ## EC2의 사용법
 
 1. aws 페이지의 `Services`에서 `EC2`를 찾아 들어갑니다.
