@@ -75,3 +75,54 @@ metaDescription: "This is the meta description"
 8. 리스트의 로드밸런서를 클릭하면 아래의 `Basic Configuration`이 보이는데, 여기서 중요한 것은 `DNS name`입니다. 인터넷에서는 ec2로 바로 접근해서 웹페이지를 보는것이 아닌 `Application Load Balancer`의 `DNS name`을 브라우저에 입력해서 생성한 두개의 ec2의 웹화면을 보게되는 것입니다. 
 9. `DNS name`을 복사하여 주소창에 붙여넣고 접속하면 2a 인스턴스의 페이지가 나옵니다. 우리는 인스턴스 2개를 설정했기 때문에 새로고침하면 2c 인스턴스가 나오게 될겁니다. 이렇게되면 Application Load Balancer를 통한 네트워크 이중화 구성이 완료된 것입니다.
 
+## VPC 및 중계서버 구성
+
+### VPC 및 서브넷 생성
+1. 먼저 `Find Service`에서 `VPC`로 이동합니다.
+2. `VPC Dashboard`가 나오는데 `Your VPCs`, `Subnets`, `Route Tables`, `Internet Gateways`, `NAT Gateways` 순서로 구성을 진행하게됩니다.
+3. `Your VPCs`에서 새로운 VPC 생성을 위해 `Create VPC`를 누릅니다.
+4. `Name Tag`는 `lab-vpc`라고 입력하고 `IPv4 CIDR block`은 서브넷 이상으로 가장 큰 아이피 범위를 선언하는 칸입니다. `10.0.0.0/16`으로 설정합니다. 다음 `Create`를 하고 `Close`합니다.
+5. 이제 서브넷을 생성할 건데 서브넷은 총 6개 public 2개, private 4개를 생성할 것입니다. 왼쪽 메뉴에서 `Subnets`를 선택하고 `Create Subnet`을 클릭합니다.
+6. 첫번째는 퍼블릭으로 생성할 것이기 때문에 `Name tag`를 `lab-pub1-2a`로 입력하고 `VPC`는 아까 생성한 `lab-vpc`를 선택합니다. `Availability Zone`은 `ap-northeast-2a`로 배치합니다. `IPv4 CIDR block*`은 이 서브넷에 서브네팅되는 아이피 주소를 적으면되는데, `10.0.1.0/24`로 입력하는데 여기서 마지막 24는 24비트로 총 251개의 아이피는 사용할 수 있도록 설정됩니다. 
+7. 이렇게 반복하여 총 6개의 서브넷을 만드는데 `lab-web-pub2-2c`, `10.0.2.0/24`/ `lab-web-pri1-2a`, `10.0.3.0/24` / `lab-web-pri2-2c`, `10.0.4.0/24` / `lab-web-pri3-2a`, `10.0.5.0/24` / `lab-web-pri4-2c`, `10.0.6.0/24`
+
+### Internet Gateway 및 Route Table 구성
+
+1. 왼쪽 메뉴에서 `Internet Gateway`를 들어갑니다.
+2. `Create Internet Gateway`를 누릅니다.
+3. `Name Tag`는 `lab-web-igw`로 입력하고 `Create`합니다.
+4. 그 다음 `Internet Gateway`가 어느 `VPC`에 트래픽을 연결(attech)할 것인가를 설정할 것입니다. 방금 생성한 `Internet Gateway`를 선택하고 `Action`에서 `Attech to VPC`를 선택합니다.
+5. 빈칸을 누르면 `VPC`들이 나오는데 생성한 `VPC`에 연결해줍니다. 그렇게되면 이 `Internet Gateway`는 연결한 `VPC`를 통해서 통신하겠다고 설정한 것입니다.
+6. 라우팅 테이블을 만들것인데 private용 public용을 만들 것입니다.
+7. 왼쪽 메뉴에서 `Route Tables`에 들어가면 라우팅 테이블이 이미 하나 생성되어있는데 이는 `VPC`를 생성할 때 따라나오는 번들용 라우팅 테이블로 이해하면됩니다. 이 라우팅 테이블을 이용해서 public용으로 만들고 private용은 새롭게 생성할 것입니다. 따라 생성된 라우팅 테이블 이름을 `lab-web-rt-pub`로 변경합니다. 그 다음 밑에 보면 `Routes`탭을 보면 로컬로 되어있는것만 볼수 있는데 public으로 `Internet Gateway`를 통해서 인터넷으로 트래픽이 나가도록 설정해야되기 때문에 `Edit Route`를 누르고 `Add Route`를 눌러 추가합니다. `Destination`은 목적지를 설정하는건데 public으로 할것이기 때문에 `0.0.0.0/0`(모든 트래픽)으로 입력하면됩니다. `Target`은 `Internet Gateway`를 선택하고 생성한 인터넷 게이트웨이를 선택하고 `Create`합니다. 이렇게하면 인터넷에서 나가는 경로를 추가한 것입니다.
+8. 그 다음 리스트에서 `lab-web-rt-pub`를 선택하고 아래의 `Subnet Assosiations`를 선택하여 우리가 아까 만들었던 public용 서브넷 2개를 선택하면됩니다. `Edit subnet associations`을 누릅니다.
+9. 2개의 서브넷을 선택하고 세이브하시면됩니다.
+10. `lab-web-rt-pri`를 생성하여 똑같이 하시면되는데, `Routes`는 설정하지 않습니다.
+11. 다음은 `private`의 리소스들이 인터넷과 통신하려할때 나갈 수 있는 `NAT Gateway` 구성할 것입니다.
+
+## NAT Gateway 구성
+
+NAT 게이트웨이는 프라이빗서브넷이 인터넷과 통신하기위한 아웃바운드 인스턴스입니다.  
+프라이빗 네트워크가 외부에서 요청되는 인바운드는 필요없더라도 인스턴스의 펌웨어나  
+혹은 주기적인 업데이트가 필요하여 아웃바운드 트래픽만 허용되야할 경우가 있습니다.  
+이때 퍼블릭 서브넷상에서 동작하는 NAT 게이트웨이는 프라이빗서브넷에서  
+외부로 요청하는 아웃바운드 트래픽을 받아 인터넷게이트웨이와 연결합니다.
+
+1. 왼쪽 메뉴에서 `NAT Gateway`를 들어갑니다.
+2. `Create NAT Gateway`를 누릅니다.
+3. `Name Tag`는 `lab-web-igw `로 입력하고 서브넷은 `lab-web-pub1-2a`를 선택하고 인터넷으로 나갈때는 공인 아이피를 타고 나가기 때문에 고정된 공인 아이피(Elastic IP)를 할당받아야합니다. `Allocate Elastic IP`를 누르면 public ip를 할당받습니다. `Create`를 합니다. 이와 같이 `lab-web-pub1-2c`도 만듭니다.
+4. 그 다음 `Route Tables`에서 `lab-web-rt-pri-2a`로 바꾸고 `Edit subnet associations`을 private인 2a 서브넷만 설정합니다. 그리고 `lab-web-rt-pri-2c`테이블을 만들어 private인 2c 서브넷만 설정해줍니다.
+5. `NAT Gateway`에 가보면 2a와 2c용 `Elastic IP(공인 아이피)`와 `Private IP`를 받은것을 확인해 볼 수 있습니다.
+
+## Bastion 및 NAT Gateway를 통한 Private 영역 EC2의 외부 인터넷 통신
+
+1. `EC2`에 들어가서 생성했던 `AMI`를 선택하고 `Launch`합니다.
+2. 프리티어 인스턴스를 선택하고 다음으로 넘어갑니다
+3. `Network`부분을 보면 우리가 생성했던 `lab-vpc`가 보이는데 그걸 선택합니다.
+4. 서브넷은 `lab-web-pub1-2a`로 지정합니다. `Auto-assign Public IP`는 `Enable`로 설정하고 나머진 기본값으로 놔두고 다음으로 두번 넘어갑니다
+5. 태그를 추가하여 Name에 `lab-web-srv-bastion`으로 추가합니다 
+6. Security group을 `lab-web-bastion-sg`라는 이름으로 생성하고 다음으로 넘어갑니다.
+7. key pair은 Bastion용으로 따로 생성하여 보안을 강화합니다. key pair 이름은 `seoul-lab-web-bastion`으로 생성합니다.
+8. 이제 private용도 동일한 `AMI`를 이용하여 생성하겠습니다. `lab-web-pri1-2a`로 생성합니다. `lab-web-pri1-2c`로 태그를 생성합니다. `lab-web-srv-sg`라는 security group도 생성합니다.
+key pair은 `seoul-lab-web-srv`
+
