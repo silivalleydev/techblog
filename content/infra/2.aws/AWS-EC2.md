@@ -9,17 +9,37 @@ metaDescription: "This is the meta description"
 1. aws 페이지의 `Services`에서 `EC2`를 찾아 들어갑니다.
 2. 왼쪽 메뉴바에서 `Instances`를 들어가면 내가 빌린 가상 컴퓨터(Instance)의 리스트가 나옵니다.
 3. `Launch Instance`를 눌러 인스턴스 생성화면으로 갑니다.
-4. Linux를 사용하기위해 `Amazon Linux`를 선택합니다 (free tier eligible 피켓 있는 걸로 선택)
-5. 마찬가지로 `Free tier eligible` 피켓이 있는 사양의 인스턴스를 선택하여 `Next: Configure instance details`를 눌러 이동합니다.
-6. `Number of Instance`는 몇개의 인스턴스를 생성할지 정하는 것이고, `Subnet`은 EC2 인스턴스가 어디로 배치될지 설정하는 것인데 `north east-2a`로 설정합니다. `Auto-assign Public IP`는 자동으로 공인아이피를 설정하게할지 정하는 것인데 `Enable`로 설정합니다. 그 외의 것들을 Default로 설정된 값들을 넣습니다. 그리고 맨 아래의 `User data`에는 `#include https://bit.ly/Userdata`라는 값을 넣고 `Next Add Storage`를 클릭합니다.
+4. Linux를 사용하기위해 `Amazon Linux`를 선택합니다  
+(free tier eligible 피켓 있는 걸로 선택)
+5. 마찬가지로 `Free tier eligible` 피켓이 있는 사양의 인스턴스를 선택하여  
+`Next: Configure instance details`를 눌러 이동합니다.
+6. `Number of Instance`는 몇개의 인스턴스를 생성할지 정하는 것이고,  
+`Subnet`은 EC2 인스턴스가 어디로 배치될지 설정하는 것인데 `north east-2a`로 설정합니다.  
+`Auto-assign Public IP`는 자동으로 공인아이피를 설정하게할지 정하는 것인데 `Enable`로 설정합니다.  
+그 외의 것들을 Default로 설정된 값들을 넣습니다.  
+그리고 맨 아래의 `User data`에는 `#include https://bit.ly/Userdata`라는  
+값을 넣고 `Next Add Storage`를 클릭합니다.
 7. `EC2`의 `Size`는 8기가 그대로 놓고 `Next: Add Tags`로 이동합니다.
-8. `Add Tags`는 이 EC2 인스턴스가 어떤용도로 쓰이는지 꼬리표를 붙이는 용도입니다. `Add Tag`를 눌러 `key`에는 `Name`을 넣고 `Value`에는 연구용이고 웹서버용으로 사용하며 public한 상태로 2a에서 사용할 것이기 때문에 `lab-web-pub-2a`라는 내용을 넣어줍니다. `Next Configure Security Group`을 누릅니다.
-9. `Configure Security Group`은 AWS가 기본적으로 제공해주는 방화벽입니다. 기존에 만든 방화벽이 없기 때문에 `Create a new security group`을 선택하고 `Security group name`에는 `lab-web-sg`라고 입력합니다. 밑에 `Rule`은 기본적으로 리눅스이기 때문에 `SSH`가 들어가있고 웹서버 테스트를 위한 `HTTP` 룰이 추가해야합니다. `Add Rule`을 클릭하고 타입에서 `HTTP`를 선택합니다. 그리고 `source` 부분은 `0.0.0.0/0`으로 수정합니다. `Review and Lunch`를 누릅니다.
+8. `Add Tags`는 이 EC2 인스턴스가 어떤용도로 쓰이는지 꼬리표를 붙이는 용도입니다.  
+`Add Tag`를 눌러 `key`에는 `Name`을 넣고 `Value`에는 연구용이고  
+웹서버용으로 사용하며 public한 상태로 2a에서 사용할 것이기 때문에 `lab-web-pub-2a`라는 내용을 넣어줍니다.  
+`Next Configure Security Group`을 누릅니다.
+9. `Configure Security Group`은 AWS가 기본적으로 제공해주는 방화벽입니다.  
+기존에 만든 방화벽이 없기 때문에 `Create a new security group`을 선택하고 `Security group name`에는  
+`lab-web-sg`라고 입력합니다. 밑에 `Rule`은 기본적으로 리눅스이기 때문에 `SSH`가 들어가있고 웹서버 테스트를 위한 `HTTP` 룰이 추가해야합니다.  
+`Add Rule`을 클릭하고 타입에서 `HTTP`를 선택합니다.  
+그리고 `source` 부분은 `0.0.0.0/0`으로 수정하고 `Review and Lunch`를 누릅니다.
 10. `Review Instance Launch`는 여태까지 설정한 내용들을 보여줍니다. `Launch`를 누릅니다.
-11. 그러면 `key pair`관련 모달이 뜨게되는데, EC2는 암호화된 `key pair`로 리눅스 OS와 통신하게됩니다. 은행 공인인증서과 같은 원리라고 생각하면됩니다. `create new key pair`을 선택하고 `key pair name`은 서울 리전에 웹서버 연구용이라는 의미로 `seoul-lab-web`를 넣고 `Download Key Pair`을 누릅니다. 그러면 `seoul-lab-web.pem`이라는 파일이 다운로드됩니다. `Launch Instance`를 누릅니다.
+11. 그러면 `key pair`관련 모달이 뜨게되는데,  
+EC2는 암호화된 `key pair`로 리눅스 OS와 통신하게됩니다.  
+은행 공인인증서과 같은 원리라고 생각하면됩니다.  
+`create new key pair`을 선택하고 `key pair name`은 서울 리전에 웹서버 연구용이라는  
+의미로 `seoul-lab-web`를 넣고 `Download Key Pair`을 누릅니다.  
+그러면 `seoul-lab-web.pem`이라는 파일이 다운로드되고 `Launch Instance`를 누릅니다.
 12. `View Instance`를 누릅니다.
 13. 생성된 인스턴스를 확인할 수 있고 status가 `Running`이 되면 인스턴스가 작동하고 있는 것입니다.
-14. 이제 인스턴스(원격 컴퓨터)에 접속을해야되는데, 맥의 경우는 해당 인스턴스를 오른쪽으로 클릭하고 `Connect`를 선택해서 연결하면 들어가집니다.
+14. 이제 인스턴스(원격 컴퓨터)에 접속을해야되는데, 맥의 경우는 해당 인스턴스를 오른쪽으로 클릭하고  
+`Connect`를 선택해서 연결하면 들어가집니다.
 
 ## AMI(Amazon Machine Image)를 이용한 EC2 생성
 
