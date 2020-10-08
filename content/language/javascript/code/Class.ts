@@ -41,4 +41,20 @@ export class Rabbit extends Animal {
     hide() {
         console.log(`${this.name}이/가 숨었습니다!`)
     }
+
+    // 오버라이드 
+    stop() {
+        console.log('오버라이드 된 메서드');
+        super.stop();
+        this.hide();
+    }
+}
+
+export class Cat extends Animal {
+    sound: String;
+
+    constructor(name: string) {
+        super(name);
+        this.sound = "Meow";
+    }
 }

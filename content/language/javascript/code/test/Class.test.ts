@@ -1,8 +1,10 @@
-import { User, Rabbit } from '../Class';
+import { User, Rabbit, Cat } from '../Class';
 
 const user = new User("John");
 
 const rabbit = new Rabbit("Tomas");
+
+const cat = new Cat("God");
 
 describe('Class getter setter test', () => {
     it('getter', () => {
@@ -26,5 +28,9 @@ describe('Class Extends test', () => {
     })
     it('hide', () => {
         rabbit.hide()
+    })
+
+    it('sound', () => {
+        console.log(cat.name)
     })
 })
