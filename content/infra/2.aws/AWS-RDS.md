@@ -2,7 +2,7 @@
 title: "AWS-RDS"
 metaTitle: "AWS-RDS"
 metaDescription: "This is the meta description"
-https://velog.io/@joker/createawsrds  참고
+# https://velog.io/@joker/createawsrds  참고
 ---
 
 
