@@ -2,12 +2,17 @@
 title: "AWS-RDS"
 metaTitle: "AWS-RDS"
 metaDescription: "This is the meta description"
+https://velog.io/@joker/createawsrds  참고
 ---
 
-## Amazon RDS를 통한 MySQL Database 구성
 
-1. `RDS`를 서비스에서 찾아들어가고 메뉴에서 `Databases`로 들어갑니다.
-2. `Standard Create`를 선택하고 `MYSQL`을 선택합니다.
-3. `Master password`는 12345678로 임의로 설정하고 `DB instance size`는 `Burstable classes (includes t classes)`를 선택합니다.
-4. `Connectivity`는 `lab-vpc`
 
+## Amazon RDS 프리티어 버전 생성 설정
+
+![dsf](../../../src/images/rds1.png)  
+![dsf](../../../src/images/rds2.png)  
+
+## RDS 생성후 사용 방법
+
+1. 데이터베이스을 했다면 이제 Amazon RDS에서 데이터베이스를 클릭합니다.  
+`Status`가  이라고 기재되어 있으면 정상적으로 사용 할 수 있습니다.

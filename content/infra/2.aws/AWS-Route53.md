@@ -45,7 +45,10 @@ Your Details에는 Country를 South Korea로 선택합니다.
 하단의 정책조건에 동의하는 체크 박스에 체크하고 [Complete Order]를 클릭합니다.
 8. Order Number 를 알려줍니다.  
 [Click here to go to your Client Area]를 클릭합니다.
-9. 상단의 [Services] -> [My Domains]를 클릭하면 위와 같이 구매한 도메인을 확인할 수 있습니다.
+9. 상단의 [Services] -> [My Domains]를 클릭하면 위와 같이 구매한 도메인을 확인할 수 있습니다.  
+해당 도메인의 `Management Domain`을 누르고 `Management Tool`을 누르고 `NameServer`를 누르면  
+네임서버를 적는 구간이 있습니다. 그곳에 `Route 53`에서 생성한 `Hosted Zone`을 선택하여 `Type`이 `NS`인 `Value`에 있는 4개의 주소를 적어주면됩니다.  
+![dsfds](../../../src/images/route2.png)
 10. 이제 AWS 콘솔로 넘어가겠습니다.  
 Route 53 콘솔로 들어가 [Hosted zones] -> [Create Hosted Zone]을 클릭합니다.
 11. Domain Name에 이전에 발급받은 도메인을 기입합니다. 여기서는 ‘testfreedomain.ml’을 사용하겠습니다.  
@@ -55,8 +58,9 @@ NS는 네임 서버 레코드, SOA는 권한 시작 레코드입니다.
 [Create Record Set]을 클릭합니다.
 13. Name 에는 하위 도메인을 설정할 수 있습니다.  
 여기서는 일반적으로 쓰이는 www를 사용하겠습니다.  
-Type은 A 레코드, Alias는 Yes에 체크하고 Alias Target에는 이전에 생성한 ELB를 선택해주면 됩니다.  
+`Type`은 `A` 레코드, `Alias`는 `No`에 체크하고 `Value`에다가 배포한 인스턴스의 `Public IPv4 address`를 입력해주면 됩니다.  
 설정을 마쳤으면 [Create]를 클릭합니다.
+![cdscds](../../../src/images/route1.png)  
 14. Record Set에 방금 생성한 A 레코드의 도메인을 확인할 수 있습니다.  
 하지만 여기서 끝난 것이 아닙니다. 네임서버를 이전에 발급받은 무료 도메인에 적용해 주어야 합니다.
 15. freenom 사이트의 My Domains에서 구매한 도메인의 [Manage Domain]을 클릭합니다.
