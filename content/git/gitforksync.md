@@ -48,8 +48,8 @@ metaDescription: "This is the meta description for this page"
 ## sync fork하는 방법
 
 1. 업스트림 저장소에서 브랜치와 각각의 커밋을 `git fetch upstream` 커멘드로 가져옵니다.  
-커밋 `master`은 로컬 분기에 저장됩니다 `upstream/master`.
+커밋 `master`은 로컬 `branch`에 저장됩니다 `upstream/master`.
 2. `git branch -a`로 전체 브랜치를 확인합니다.
 3. `git checkout master`로 `fork`의 마스터 브랜치를 확인합니다.
-4. `upstream/master`에서 로컬 `master` 브랜치로 변경 사항을 `merge`합니다.  
-이것은 `master` 로컬 변경 사항을 잃지 않고 `fork`의 분기를 `upstream repository`와 `동기화(sync)`합니다.
+4. `upstream/master`에서 로컬 `master` 브랜치로 변경 사항을 `git merge upstream/master`로 `merge`합니다.  
+이것은 `master` 로컬 변경 사항을 잃지 않고 `fork`의 `branch`를 `upstream repository`와 `동기화(sync)`합니다.
