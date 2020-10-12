@@ -55,7 +55,7 @@
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/26.BackTracking</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/6.TimeComplexity</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/git</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/git/gitfork</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/11.BubbleSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/12.InsertionSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/git/gitforksync</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
