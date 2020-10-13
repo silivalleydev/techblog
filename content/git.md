@@ -1,6 +1,6 @@
 ---
-title: "깃 허브"
-metaTitle: "깃 허브"
+title: "깃(Git)"
+metaTitle: "깃(Git)"
 metaDescription: "This is the meta description for this page"
 ---
 
