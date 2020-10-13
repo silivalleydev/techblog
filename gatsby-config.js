@@ -11,6 +11,20 @@ const plugins = [
       acl: null
     },
   },
+  // {
+  //   resolve: `gatsby-transformer-remark`,
+  //   options: {
+  //     plugins: [
+  //       {
+  //         resolve: `gatsby-remark-katex`,
+  //         options: {
+  //           // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+  //           strict: `ignore`
+  //         }
+  //       }
+  //     ],
+  //   },
+  // },
   {
     resolve: `gatsby-plugin-layout`,
     options: {
@@ -35,13 +49,21 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
+      remarkPlugins: [require(`remark-math`)],
+      rehypePlugins: [require(`rehype-katex`)],
       gatsbyRemarkPlugins: [
         {
           resolve: "gatsby-remark-images",
           options: {
             maxWidth: 1035,
-            sizeByPixelDensity: true
+            sizeByPixelDensity: true,
           }
+        },
+        { 
+          resolve : 'gatsby-remark-katex', 
+          options : { 
+            strict : 'ignore', 
+          }, 
         },
         {
           resolve: 'gatsby-remark-copy-linked-files'
