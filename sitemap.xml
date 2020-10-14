@@ -11,7 +11,6 @@
 <url> <loc>https://hasura.io/tdd</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/tdd/1.unit-test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/tdd/2.mocha</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/tdd/3.chai</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/library/graphql</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/library/nexusjs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/language/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -61,7 +60,8 @@
 <url> <loc>https://hasura.io/framework/prisma/prisma2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/6.TimeComplexity</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/language/python</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/datastructure&amp;algorithm/25.MinimumSpanningTree</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/tdd/3.chai</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/language/python/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/7.HashTable</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/datastructure&amp;algorithm/25.MinimumSpanningTree</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
