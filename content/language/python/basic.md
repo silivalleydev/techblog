@@ -21,7 +21,7 @@ for i in range(10):
 print(hash_table2)
 ```
 
-- ord(): ASC||(아스키 코드)를 리턴함
+- **ord()**: ASC||(아스키 코드)를 리턴함
 ```py
 data1 = 'Jack'
 
