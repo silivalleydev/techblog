@@ -35,9 +35,6 @@
 <url> <loc>https://hasura.io/infra/2.aws/AWS-Route53</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/10.SpaceComplexity</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/infra/2.aws/AWS-S3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/datastructure&amp;algorithm/11.BubbleSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/datastructure&amp;algorithm/13.SelectionSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/datastructure&amp;algorithm/12.InsertionSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/14.RecursiveCall</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/16.QuickSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/15.DynamicProgramming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -54,7 +51,6 @@
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/3.queue</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/4.stack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/5.linkedlist</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/datastructure&amp;algorithm/9.Heap</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/framework/prisma/NoticePrisma</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/framework/prisma/prisma2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/6.TimeComplexity</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -64,4 +60,11 @@
 <url> <loc>https://hasura.io/language/python/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/7.HashTable</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/8.Tree</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/framework/electron</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/framework/electron/electronbasic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/datastructure&amp;algorithm/9.Heap</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/datastructure&amp;algorithm/11.BubbleSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/datastructure&amp;algorithm/13.SelectionSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/git/rebase</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/datastructure&amp;algorithm/12.InsertionSort</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
