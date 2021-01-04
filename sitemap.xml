@@ -35,7 +35,6 @@
 <url> <loc>https://hasura.io/language/python/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/infra/3.docker/docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/infra/3.docker/dockerbasic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://hasura.io/language/javascript/executionContext copy</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/language/javascript/scope_this</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/infra/3.docker/dockerawsdeploy</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/infra/2.aws/AWS-EC2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -71,4 +70,5 @@
 <url> <loc>https://hasura.io/datastructure&amp;algorithm/8.Tree</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/framework/electron/electronbasic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/framework/prisma/prisma2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/language/javascript/executionContext</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
