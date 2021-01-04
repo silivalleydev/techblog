@@ -73,6 +73,26 @@ foo();
 실행 컨텍스트 생성 이후 스코프 체인의 스코프 체인의 생성과 초기화가 실행되는데,  
 이떄 스코프체인은 전역객체의 주소를 포함하는 리스트로 생성됩니다.  
 
+자바스크립트는 스코프 체인을 통해 렉시컬 스코프를 파악합니다.  
+함수의 선언된 부분을 스코프 체인을 통해 파악한다는 의미입니다.  
+```js
+var x = "xxx";
+
+function foo(){
+  var y = "yyy";
+
+  function bar () {
+    var z = 'zzz';
+    console.log(x + y + z);
+  }
+  bar();
+}
+
+foo();
+```
+
+위의 코드가 있다고 가정할 때 
+
 ### 3. Variable Instantiation(변수 객체화) 실행
 
 다음은 변수 객체화가 실행됩니다.  
@@ -130,7 +150,7 @@ undefined로 초기화된 변수에 실제값을 할당합니다.
 
 ### 변수 값의 할당
 
-![ㅇㅇ](../../../src/images/variable2.png) 
+![ㅇㅇ](../../../src/images/variable3.png) 
 
 전역 변수 x에 문자열 ‘xxx’를 할당할 때, 현재 실행 컨텍스트의 스코프 체인이 참조하고 있는  
 Variable Object의 선두(전역객체의 맨위)부터 검색하게되는데,  
@@ -141,7 +161,38 @@ Variable Object의 선두(전역객체의 맨위)부터 검색하게되는데,
 ![ㅇㅇ](../../../src/images/foo.png) 
 
 함수가 실행되면 foo 함수에 대한 함수 실행 컨텍스트가 실행됩니다.  
-1. 스코프 체인의 생성과 초기화
-2. Variable Instantiation 
-3. this value 결정
+
+1. 스코프 체인의 생성과 초기화  
+2. Variable Instantiation  
+3. this value 결정  
+
 순으로 전역코드와 비슷하게 실행되는데 this value 결정은 함수 호출패턴에 따라 달라집니다.  
+
+### 함수 코드 스코프 체인의 생성과 초기화
+
+![ㅇㅇ](../../../src/images/scopechain.png) 
+![ㅇㅇ](../../../src/images/scopechain2.png) 
+함수 코드의 스코프 체인의 생성과 초기화는 우선 Activation Object의 주소값을 먼저 설정합니다.  
+그다음 전역 컨텍스트의 Scope Chain이 참조하고 있는 객체가 스코프 체인에 push됩니다.  
+
+### Variable Instantiation 실행
+
+![ㅇㅇ](../../../src/images/scopechain3.png)  
+함수 코드의 경우 생성된 Activation Object를 Variable Object로서 변수 객체화가 실행됩니다.  
+함수가 설정되고 그다음 변수의 초기화가 진행됩니다.  
+
+### this value 결정
+
+![ㅇㅇ](../../../src/images/scopechain4.png)  
+this value는 함수 호출 패턴에 따라 달라지는데, 내부함수의 경우 this의 value는 전역객체입니다.  
+
+
+### 함수 실행
+
+![ㅇㅇ](../../../src/images/scopechain5.png)  
+이제 함수 foo의 코드 블록 내 구문이 실행된다. 위 예제를 보면 변수 y에 문자열 ‘yyy’의 할당과 함수 bar가 실행됩니다.
+
+### 변수 값의 할당
+
+지역 변수 y에 문자열 ‘yyy’를 할당할 때, 현재 실행 컨텍스트의 스코프 체인이 참조하고 있는  
+Variable Object를 제일 앞 선두 0번부터 검색하여 변수명에 해당하는 프로퍼티가 발견되면 값 ‘yyy’를 할당합니다.
