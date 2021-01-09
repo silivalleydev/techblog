@@ -4,10 +4,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn';
 import Link from './link';
 import Loadable from 'react-loadable';
+
 import config from '../../config.js';
 import LoadingProvider from './mdxComponents/loading';
 import { DarkModeSwitch } from './DarkModeSwitch';
-import Sidebar from './sidebar';
 
 const help = require('./images/help.svg');
 
@@ -23,6 +23,7 @@ if (isSearchEnabled && config.header.search.indexName) {
   });
 }
 
+import Sidebar from './sidebar';
 
 const LoadableComponent = Loadable({
   loader: () => import('./search/index'),
@@ -95,18 +96,17 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>
             <div className={'navBarHeader'}>
-              SuHyeon's TechBlog
-              {/* <Link to={finalLogoLink} className={'navBarBrand'}>
+              <Link to={finalLogoLink} className={'navBarBrand'}>
                 <img
                   className={'img-responsive displayInline'}
                   src={logo.image !== '' ? logo.image : logoImg}
                   alt={'logo'}
                 />
-              </Link> */}
-              {/* <div
+              </Link>
+              <div
                 className={'headerTitle displayInline'}
                 dangerouslySetInnerHTML={{ __html: headerTitle }}
-              /> */}
+              />
             </div>
             {config.header.social ? (
               <ul
@@ -148,7 +148,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                   </li>
                 ) : null}
 
-                {/* {tweetText !== '' ? (
+                {tweetText !== '' ? (
                   <li>
                     <a
                       href={'https://twitter.com/intent/tweet?&text=' + tweetText}
@@ -169,8 +169,8 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                       dangerouslySetInnerHTML={{ __html: config.header.social }}
                     ></ul>
                   </li>
-                ) : null} */}
-                {/* {githubUrl !== '' ? (
+                ) : null}
+                {githubUrl !== '' ? (
                   <li className={'githubBtn'}>
                     <GitHubButton
                       href={githubUrl}
@@ -180,7 +180,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                       Star
                     </GitHubButton>
                   </li>
-                ) : null} */}
+                ) : null}
                 <li>
                   <DarkModeSwitch
                     isDarkThemeActive={isDarkThemeActive}

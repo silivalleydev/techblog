@@ -1,16 +1,11 @@
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
+
 const config = require("./config");
+
 const plugins = [
   'gatsby-plugin-sitemap',
   'gatsby-plugin-sharp',
-  {
-    resolve: `gatsby-plugin-s3`,
-    options: {
-      bucketName: "docs.realtalks.com",
-      acl: null
-    },
-  },
   {
     resolve: `gatsby-plugin-layout`,
     options: {
@@ -27,29 +22,15 @@ const plugins = [
     }
   },
   {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      path: `${__dirname}/src/images`,
-    },
-  },
-  {
     resolve: 'gatsby-plugin-mdx',
     options: {
-      remarkPlugins: [require(`remark-math`)],
-      rehypePlugins: [require(`rehype-katex`)],
       gatsbyRemarkPlugins: [
         {
           resolve: "gatsby-remark-images",
           options: {
             maxWidth: 1035,
-            sizeByPixelDensity: true,
+            sizeByPixelDensity: true
           }
-        },
-        { 
-          resolve : 'gatsby-remark-katex', 
-          options : { 
-            strict : 'ignore', 
-          }, 
         },
         {
           resolve: 'gatsby-remark-copy-linked-files'
@@ -70,6 +51,7 @@ const plugins = [
     },
   },
 ];
+
 // check and add algolia
 if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
   plugins.push({
@@ -104,6 +86,7 @@ if (config.gatsby && !config.gatsby.trailingSlash) {
 }
 
 module.exports = {
+  pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
     title: config.siteMetadata.title,
     description: config.siteMetadata.description,

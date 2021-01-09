@@ -7,7 +7,6 @@ import { Layout, Link } from '$components';
 import NextPrevious from '../components/NextPrevious';
 import config from '../../config';
 import { Edit, StyledHeading, StyledMainWrapper } from '../components/styles/Docs';
-import "katex/dist/katex.min.css";
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 
@@ -16,7 +15,7 @@ export default class MDXRuntimeTest extends Component {
     const { data } = this.props;
 
     if (!data) {
-      return null;
+      return this.props.children;
     }
     const {
       allMdx,
@@ -94,11 +93,11 @@ export default class MDXRuntimeTest extends Component {
         <div className={'titleWrapper'}>
           <StyledHeading>{mdx.fields.title}</StyledHeading>
           <Edit className={'mobileView'}>
-            {/* {docsLocation && (
+            {docsLocation && (
               <Link className={'gitBtn'} to={`${docsLocation}/${mdx.parent.relativePath}`}>
                 <img src={gitHub} alt={'Github logo'} /> Edit on GitHub
               </Link>
-            )} */}
+            )}
           </Edit>
         </div>
         <StyledMainWrapper>

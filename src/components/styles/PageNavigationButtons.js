@@ -14,7 +14,6 @@ export const StyledNextPrevious = styled('div')`
     -moz-box-align: center;
     -moz-box-direction: normal;
     -moz-box-orient: horizontal;
-    witth:auto;
     margin: 0px;
     padding: 0px;
     position: relative;
@@ -66,7 +65,7 @@ export const StyledNextPrevious = styled('div')`
   }
 
   .leftArrow {
-    display: block;
+    display: flex;
     margin: 0px;
     color: rgb(157, 170, 182);
     flex: 0 0 auto;
@@ -77,12 +76,12 @@ export const StyledNextPrevious = styled('div')`
   }
 
   .rightArrow {
+    display: flex;
     flex: 0 0 auto;
     font-size: 24px;
     transition: color 200ms ease 0s;
     padding: 16px;
     padding-left: 16px;
-    display: block;
     margin: 0px;
     color: rgb(157, 170, 182);
   }

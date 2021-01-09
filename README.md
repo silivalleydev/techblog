@@ -1,1 +1,1 @@
-# wisemk79-techblog
+# techblog

@@ -1,6 +1,6 @@
-import { injectGlobal } from 'emotion';
+import { css } from '@emotion/core';
 
-export const baseStyles = injectGlobal`
+export const baseStyles = css`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
   * {
@@ -257,7 +257,7 @@ export const baseStyles = injectGlobal`
     padding: 0 !important;
   }
   .navBarDefault {
-    background-color: white;
+    background-color: #001934;
     border-radius: 0;
     border-top: 0;
     margin-bottom: 0;
@@ -274,10 +274,8 @@ export const baseStyles = injectGlobal`
     height: 80px;
   }
   .navBarHeader {
-    min-width: 200px;
+    min-width: 335px;
     padding-right: 20px;
-    font-size:27px;
-    font-weight:900;
     display: flex;
     align-items: center;
   }
@@ -666,7 +664,6 @@ export const baseStyles = injectGlobal`
   }
 
   .heading1 {
-    min-width: 500px;
     font-size: 26px;
     font-weight: 800;
     line-height: 1.5;
