@@ -71,4 +71,5 @@
 <url> <loc>https://hasura.io/techblog/datastructure&amp;algorithm/8.Tree</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/techblog/datastructure&amp;algorithm/9.Heap</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://hasura.io/techblog/datastructure&amp;algorithm/7.HashTable</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://hasura.io/techblog/language/javascript/closure</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
