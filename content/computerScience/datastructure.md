@@ -1,3 +1,9 @@
+---
+title: "자료구조"
+metaTitle: "자료구조"
+metaDescription: "This is the meta description for this page"
+---
+
 ## 자료구조
 
 ### 개념
