@@ -41,7 +41,7 @@ metaDescription: "This is the meta description for this page"
 - 처리기 사이의 거리: 10000km
 - 처리기가 전체가 위치한 장소: 지구
 
-### 컴퓨터 통신망 정의
+## 컴퓨터 통신망 정의
 
 #### 통신(communication)
 - 광의의 통신: 서로 떨어진 지점, 사람 또는 장치들 사이에서 다양한 매개체를 통해 정보를 전달하는 과정
@@ -77,6 +77,67 @@ metaDescription: "This is the meta description for this page"
     - American Airline 사의 여객기 좌석 예약 업무처리
 - ARPA Network(1960년대)
     - Advanced Research Project Agency
-    - TCP/IP 개발
+    - TCP/IP(프로토콜) 개발
     - 패킷 교환 네트워크
+- ALOHA 시스템(1968)
+    - Additive Links Online Hawaii Area
+    - 하와이 대학, 실험적 무선 패킷 교환 네트워크
+- TELENET(1974)
+    - 최초의 대중화된 상용 패킷 교환 네트워크
 
+### 컴퓨터 통신망 서비스
+- e-Mail
+- 파일전송
+- 원격처리(remote login, remote procedure)
+- 원격회의
+- 분산 데이터베이스 시스템
+- 웹서비스
+- 소셜 네트워크 서비스
+
+### 데이터 통신 시스템의 구성
+
+                        단말장치(DTE)           신호변환장치(DCE)
+                        /                   /
+             데이터 전송 시스템 - 데이터 전송회선 -
+            /           \                   \
+데이터 통신 시스템            통신제어장치(CCE)      통신회선
+            \
+             데이터 처리 시스템 - 컴퓨터
+
+#### 데이터 처리 시스템
+컴퓨터가 있다.
+
+#### 데이터 전송 시스템
+단말장치, 데이터 전송회선(통신 매체), 통신제어장치로 구성되어있다.
+
+
+#### 단말장치
+- DTE(Data Terminal Equipment)
+
+#### 데이터 전송회선(통신매체)
+- 신호 변환장치(Data Communication Equipment)
+    - Modem(아날로그 데이터를 디지털 데이터로 바꿔주는 것), DSU(Digital Service Unit): 같은 디지털 데이터여도 속도가 1g 거나 1mb이거나 다를 수 있는데 이러한 신호 변화시키기 위해 필요한 장치
+- 통신회선: 어떤 매체와 매체를 선으로 연결 시켜 아날로그 또는 디지털 데이터로 전송하는 선
+
+#### 통신제어장치
+- CCE(Communication Control Equipment), CCP
+
+### 통신 소프트웨어
+데이터 전송회선과 통신제어장치를 이용하여 컴퓨터와 단말장치 사이에서 정보를 송수신하기위한 프로그램 
+
+## 통신 프로토콜(communication protocol)
+- 통신을 원하는 두 개채간의 무엇을 어떻게 언제 통신할 것인지를 서로 정한 규약
+
+### 프로토콜의 주요요소
+- 구문(syntax): 데이터 형식이나 신호 수준 등을 포함한다.
+- 의미(semantic): 전송의 조정, 오류관리를 위한 제어정보를 포함한다.
+- 타이밍(timing): 전송속도 조절 및 전송순서 조정 등을 포함한다. 
+
+### 컴퓨터 통신망 구조(computer network architecture)
+모든 통신기능을 담고있는 하나의 프로토콜을 사용하는 대신 통신기능을 구현하는 프로토콜(약속들)들의 구조적 집합  
+여러가지 통신 규약, 약속들의 집합을 의미한다.
+
+- IBM, SNA(System Network Architecture)
+- DEC, DNA(Digital Network Architecture)
+- OSI, OSI(Open Systems Interconnection)
+    - 7-Layered Reference Model(OSI 7계층 참조 모델): 위의 IBM이나 DEC와 같은 규약들로 하게되면 서로 다른 회사에서 반발이 있게되기 때문에 OSI 7계층 참조 모델의 규약으로 통신 프로토콜을하면 문제없게 하자 규약을 정한것
