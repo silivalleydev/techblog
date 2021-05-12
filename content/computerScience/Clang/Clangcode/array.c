@@ -1,6 +1,6 @@
 #include "stdio.h"
 
-void main() {
+int main() {
     int a[4];
     a[0] = 10;
     a[1] = 20;
